@@ -1,139 +1,243 @@
-/* Importar fuente personalizada*/
-@import url(https://fonts.google.com/specimen/Lato?selection.family=Lato:400,700);
-/* Normalizar documento*/
+@import url('https://fonts.googleapis.com/css?family=KoHo:400,700');
 * {
-    margin: 0; padding: 0; box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* variables css*/
-:root{
-    --c-primario: #F67280;
-    --c-secundario:#C06C84;
-    --c-terciario:#6C5B7B;
-    --c-claro:#F8B195;
-    --c-oscuro: #355C7D;
-
-    /* Dimensión de iframe*/
-    --iframe-width: 650 px;
-    --iframe-height: 450px; 
-
+:root {
+    /*variables que tienen los colores*/
+    --c-uno: #B9121B;
+    --c-dos: #4C1B1B;
+    --c-tres: #F6E497;
+    --c-oscuro: #BD8D46;
+    --c-claro: #FCFAE1;
+    /*dimensiones del iframe */
+    --W-iframe: 680px;
+    --H-iframe: 450px;
 }
 
-/* Personalización o layout de la aplicación*/
-
-.contenedor{
-    background: var(--c-claro);
+.contenedor {
     width: 100vw;
     height: 100vh;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr 50px;
-
+    background: tomato;
+    overflow-x: hidden;
 }
 
-.header{
-    background: var(--c-terciario);
+body {
+    background-color: var(--c-uno);
+    font-family: 'koHO';
+}
+
+.header {
     grid-column: 1 / 2;
-    
-}
-.menu{
-    display: none;
+    grid-row: 1 / 2;
+    background-color: var(--c-dos);
 }
 
-.main{
-    background: var(--c-primario);
-    padding: 1em;
+.menu {
+    position: fixed;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    border-right: 1px solid var(--c-dos);
+    left: -300px;
+    background-color: var(--c-dos);
+}
+
+.menu.mostrar {
+    left: 0;
+}
+.menu-close {
+  width: 5%;
+  left: 10%;
+  color: #B9121B;
+  cursor: pointer;
+}
+
+.menu .lista-links li {
+    border-bottom: 1px solid var(--c-tres);
+    transition: background-color 0.5s;
+}
+
+.menu .lista-links li:hover {
+    background: var(--c-tres);
+}
+
+.menu .lista-links li a {
+    display: block;
+    padding: 5px 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.main {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    background: var(--c-oscuro);
 }
 
-.footer{
-    background: var(--c-oscuro);
-    grid-column: 1 / 2;
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--c-dos);
+    grid-column: 1 /2;
     grid-row: 3 / 4;
 }
 
-/* Estilos para el contenido principal*/
-.main .instruccion{
+/*estilo para el contenido principal*/
+
+.main .instruccion {
     width: 90%;
     margin: 0 auto;
-     background: white;
-}
-.main .instruccion p{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-weight: bold; 
+    background-color: var(--c-claro)
 }
 
-body{
-    font-family: 'Lato';
+.main .instruccion p {
+    margin: 0;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .main .contenedor-iframe {
     width: 90%;
-    border: 5px solid white;
     margin: 0 auto;
-    text-align: center; 
+    border: 5px solid yellow;
+    text-align: center;
     margin-top: 0.5em;
+    overflow-x: auto;
+    background-color: var(--c-claro);
 }
 
-.main .contenedor-iframe iframe{
-   width: var(--iframe-width);
-   height: var(--iframe-height);
+.main .contenedor-iframe iframe {
+    width: var(--W-iframe);
+    height: var(--H-iframe);
 }
 
-/* Estilos para la barra de navegación*/
-.nav *{
-    color: var(--c-claro);
+/*estilos para la barra de navegacion*/
+
+.nav * {
+    color: aqua;
+}
+.nav .nav-links{
+    display: none;
 }
 
-.nav .nav-links li:hover{
-   background: var(--c-primario);
+.nav .nav-links.mostrar{
+    display: block;
 }
 
-.nav .nav-links li{
+.nav .nav-links li {
     text-align: center;
     margin: 0 auto;
-    transition: background 0.5s;
 }
 
-.nav .nav-links li a{
-display: block;
-padding: 5px;
-font-weight: bold;
+.nav .nav-links li:hover {
+    background: var(--c-uno);
+}
+
+/*utilidad para normalizar listas y links*/
+
+.lista-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lista-links li a {
+    text-decoration: none;
 }
 
 .nav .menu-open {
     display: inline-block;
     margin: 5px auto 5px 15px;
-    font-size: 25px;
-    cursor: pointer;
+    /* margen va en el orden arriba derecha abajo izquierda*/
 }
 
 .nav {
     position: relative;
 }
 
-.nav .nav-toggle{
-   position: absolute;
-   right: 15px;
-   top: 5px;
-   font-size: 25px;
-   cursor: pointer;
+.nav .nav-toogle {
+    position: absolute;
+    right: 0;
 }
-/* Normalización de las listas*/
 
+/* ----> responsive design, estilo para dispositivos de escritorio<---*/
 
-.lista-links{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+@media screen and (min-width: 900px) {
+    /*se quitan los botones*/
+    .nav .menu-open, .nav .nav-toogle {
+        display: none;
+    }
+    .nav .nav-links {
+        height: 50px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav .nav-links li {
+        height: 80%;
+        margin: 0;
+        margin-left: 20%;
+        border: 1px solid var(--c-tres);
+        border-radius: 10px;
+    }
+    .nav .nav-links li a {
+        height: 100%;
+        padding: 0 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contenedor {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: auto 1fr 50px;
+    }
+    .header {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+    .menu {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+    }
+    .main {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+    .footer {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+    }
+    /* se modifican algunas propiedades para el layout deseado*/
+    .menu {
+        position: static;
+        width: 300px;
+        height: auto;
+        transition: none;
+        border-top: 1px solid var(--c-tres);
+        border-bottom: 1px solid var(--c-tres);
+    }
+    .main .instruccion, .main .contenedor-iframe {
+        width: var(--W-iframe);
+    }
+
+    .menu .menu-close {
+        display: none;
+    }
 }
-.lista-links li a{
-  text-decoration: none;
-}
-/* Iconos grandes */
+
+/*utilidades*/
 
 .icono-grande {
     font-size: 25px;

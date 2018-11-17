@@ -1,62 +1,61 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Repositorio de Actividades Educativas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/estilos.css" />
-    <link rel="stylesheet" href="assets/ext/feathericon-release/feathericon/css/feathericon.min.css">
-
+    <link rel="stylesheet" href="Assets/ext/feathericon/css/feathericon.min.css">
+    <link rel="stylesheet" href="Assets/CSS/estilos.css">
 
 </head>
 
 <body>
     <div class="contenedor">
-
-
         <header class="header">
             <nav class="nav">
+                <span class="nav-toogle icono-grande" id="btn-nav-toggle">
+                    <i class="fe fe-bar"></i>
+                </span>
                 <span class="menu-open icono-grande" id="btn-menu-open">
                     <i class="fe fe-list-bullet"></i>
+                    <!--iconos-->
                 </span>
-                <span class="nav-toggle icono-grande" id="btn-menu-open">
-                     <i class="fe fe-bar"></i>
-
-
-                </span>
-                <ul class="nav-links lista-links">
-                    <li> <a href="">Inicio</a></li>
-                    <li> <a href="">Contacto</a></li>
-                    <li> <a href="">Nueva Actividad</a> </li>
+                <!-- se puede poner varias nombres de clase-->
+                <ul class="nav-links lista-links" id="nav-links">
+                    <li> <a href="#">Inicio</a></li>
+                    <li> <a href="https://www.pexels.com/search/cat/">Contenido</a></li>
+                    <li> <a href="#">Nueva actividad</a></li>
                 </ul>
             </nav>
-
         </header>
-        <div class="menu">
-            <ul class="menu-links lista-links">
-                <li><a href="#">1</a></li>
-                <li> <a href="#">1</a></li>
-                <li> <a href="#">1</a></li>
-                <li> <a href="#">1</a></li>
-                <li> <a href="#">1</a></li>
+        <div class="menu" id="menu-lateral">
+            <span class="menu-close" id="btn-menu-close">
+                 <i class="fe fe-close"></i>
+            </span>
+            <ul class="lista-links" id="menu-links">
+                <li><a href="#">Gatos</a></li>
+                <li><a href="https://www.pexels.com/search/cameras/">Camaras</a></li>
+                <li><a href="https://www.pexels.com/search/whale/">Ballenas</a></li>
+                <li><a href="https://www.pexels.com/search/cars/">Carros</a></li>
+                <li><a href="https://www.pexels.com/search/skyscrapers/">Edificios</a></li>
             </ul>
-
         </div>
         <section class="main">
             <div class="instruccion">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, delectus aliquid, odit amet perferendis facere, vel necessitatibus recusandae vitae voluptatibus aliquam earum neque ratione autem sint architecto totam aspernatur enim?</p>
+                <p>Hello Is Party Time!</p>
             </div>
-            <div class="contenedor-iframe">
-                <iframe id="iframe" src="" frameborder="0"></iframe>
+            <div class="contenedor-iframe" >
+                <iframe id="iframe" name="main-iframe" src="https://www.angular.io/" frameborder="0"></iframe>
             </div>
         </section>
+
         <footer class="footer">
-            <p>Hecho por: Laura Viviana Rios Obando &copy 2018</p>
+
+            This is a test Page - © 2018
         </footer>
     </div>
-    <script src="main.js"></script>
+    <script src="Assets/js/script.js"></script>
 </body>
 
 </html>
