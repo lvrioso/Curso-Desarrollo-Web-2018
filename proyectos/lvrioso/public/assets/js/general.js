@@ -1,1 +1,1 @@
-alert("He cargado general.js");
+alert();

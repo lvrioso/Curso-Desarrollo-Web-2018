@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Repositorio de Actividades Educativas</title>
-    <link rel="stylesheet" href="Assets/ext/feathericon/css/feathericon.min.css">
-    <link rel="stylesheet" href="Assets/CSS/estilos.css">
+    {% extends "plantillas/base.twig" %}
 
-</head>
+    {% block titulo %}Aplicacion de Repositorio{% endblock %}
 
-<body>
+    {% block stylesheets %}
+            {{ parent() }} 
+          <link rel="stylesheet" href="{{ constant('APP_URL') }}assets/css/aplicacion.css">
+    {% endblock %}
+    
+    
+
+{% block contenido %}
     <div class="contenedor">
         <header class="header">
             <nav class="nav">
@@ -23,19 +23,19 @@
                 </span>
                 <!-- se puede poner varias nombres de clase-->
                 <ul class="nav-links lista-links" id="nav-links">
-                    <li> <a href="#">Inicio</a></li>
+                    <li> <a href="{{ path_for ('inicio') }}">Inicio</a></li>
                     <li> <a href="https://www.pexels.com/search/cat/">Contenido</a></li>
                     <li> <a href="#">Nueva actividad</a></li>
                 </ul>
             </nav>
         </header>
-        <div class="menu" id="menu-lateral">
+        <div class="menu" id="menu-lateral" data-url="{{ path_for('aplicacion.actividades') }}">
             <span class="menu-close" id="btn-menu-close">
                  <i class="fe fe-close"></i>
             </span>
             <ul class="lista-links" id="menu-links">
-                <li><a href="#">Gatos</a></li>
-                <li><a href="https://www.pexels.com/search/cameras/">Camaras</a></li>
+                <li><a href="#">UNAL</a></li>
+                <li><a href="#">GAIA</a></li>
                 <li><a href="https://www.pexels.com/search/whale/">Ballenas</a></li>
                 <li><a href="https://www.pexels.com/search/cars/">Carros</a></li>
                 <li><a href="https://www.pexels.com/search/skyscrapers/">Edificios</a></li>
@@ -49,13 +49,15 @@
                 <iframe id="iframe" name="main-iframe" src="https://www.angular.io/" frameborder="0"></iframe>
             </div>
         </section>
-
-        <footer class="footer">
-
-            This is a test Page - © 2018
-        </footer>
+          {% include "fragmentos/footer.twig" %}
     </div>
-    <script src="Assets/js/script.js"></script>
-</body>
 
-</html>
+   
+    
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="{{ constant('APP_URL') }}assets/js/aplicacion.js"></script>
+{% endblock %} 

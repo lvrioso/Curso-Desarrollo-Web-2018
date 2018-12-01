@@ -32,14 +32,14 @@ function arreglarNavLinks() {
 }
 
 function cargarDatos() {
-    var datos = [
-        {url: "//unal.edu.co", nombre: "UNAL", instruccion: "Instruccion UNAL"},
-        {url: "//css-trick.com", nombre: "CSS tricks", instruccion: "Instruccion CSS"},
-        {url: "Assets/uploads/actividades/actividad-normal", nombre: "Determinar operacion", instruccion: "Ponga el signo correcto para que el resultado sea correcto"},
-        {url: "Assets/uploads/actividades/actividad-canvas", nombre: "Arrrastrar periquitos", instruccion: "Ponga el signo correcto para que el resultado sea correcto"}
-    ];
-
-    return datos;
+    var url = menuLateral.dataset.url;
+    var datos = [];
+    axios.get(url)
+         .then(function(res){
+        
+         }).catch(function(err){
+            console.log(err);
+         })
 }
 
 function generarLinks() {
